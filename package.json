@@ -7,9 +7,7 @@
   "repository": "git@github.com:threeak/tosshin-app.git",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "react": "^17.0.1",
