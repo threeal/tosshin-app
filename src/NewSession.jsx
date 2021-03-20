@@ -4,6 +4,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  CircularProgress,
   Container,
   makeStyles,
   useTheme,
@@ -28,19 +29,23 @@ const useStyles = makeStyles(() => {
   };
 });
 
+const session = new Session();
+
 function NewSession({ setContext }) {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
 
   const [webSocketUrl, setWebSocketUrl] = useState("ws://localhost:8080");
+  const [connecting, setConnecting] = useState(false);
 
-  const session = new Session()
+  session
     .onConnect((newContext) => {
       enqueueSnackbar("Connected to the bridge server!", {
         variant: "success",
       });
 
       setContext(newContext);
+      setConnecting(false);
     })
     .onDisconnect((code, reason) => {
       enqueueSnackbar(
@@ -49,6 +54,7 @@ function NewSession({ setContext }) {
       );
 
       setContext(null);
+      setConnecting(false);
     })
     .onError((err) => {
       enqueueSnackbar(`Found error! ${err.message}`, {
@@ -57,7 +63,11 @@ function NewSession({ setContext }) {
     });
 
   const onConnectButton = () => {
-    session.connect(webSocketUrl);
+    setTimeout(() => {
+      session.connect(webSocketUrl);
+    }, 1000);
+
+    setConnecting(true);
   };
 
   const validateWebSocketUrl = () => {
@@ -85,6 +95,7 @@ function NewSession({ setContext }) {
             onChange={onWebSocketUrlChange}
             error={!validateWebSocketUrl()}
             helperText={validateWebSocketUrl() ? "" : "Invalid WebSocket URL"}
+            disabled={connecting}
             variant="outlined"
             fullWidth
           />
@@ -92,12 +103,13 @@ function NewSession({ setContext }) {
         <CardActions>
           <Button
             onClick={onConnectButton}
-            disabled={!validateWebSocketUrl()}
+            disabled={!validateWebSocketUrl() || connecting}
             color="primary"
             variant="contained"
+            hei
             fullWidth
           >
-            Connect
+            {connecting ? <CircularProgress size={24} /> : "Connect"}
           </Button>
         </CardActions>
       </Card>
