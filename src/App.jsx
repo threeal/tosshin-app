@@ -1,12 +1,17 @@
-import React from "react";
+import { SnackbarProvider } from "notistack";
+import React, { useState } from "react";
 
 import MovementNode from "./MovementNode";
 import NewSession from "./NewSession";
 
 function App() {
-  const [context, setContext] = React.useState(null);
+  const [context, setContext] = useState(null);
 
-  return context ? <MovementNode /> : <NewSession setContext={setContext} />;
+  return (
+    <SnackbarProvider maxSnack={3}>
+      {context ? <MovementNode /> : <NewSession setContext={setContext} />}
+    </SnackbarProvider>
+  );
 }
 
 export default App;

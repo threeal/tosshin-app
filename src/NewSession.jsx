@@ -1,14 +1,19 @@
-import MuiButton from "@material-ui/core/Button";
-import MuiCard from "@material-ui/core/Card";
-import MuiCardActions from "@material-ui/core/CardActions";
-import MuiCardContent from "@material-ui/core/CardContent";
-import MuiCardHeader from "@material-ui/core/CardHeader";
-import MuiContainer from "@material-ui/core/Container";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import MuiTextField from "@material-ui/core/TextField";
-import PropTypes from "prop-types";
-import React from "react";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Container,
+  makeStyles,
+  useTheme,
+  TextField,
+} from "@material-ui/core";
+
 import { Session } from "kumo-client";
+import { useSnackbar } from "notistack";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 const useStyles = makeStyles(() => {
   const theme = useTheme();
@@ -19,22 +24,36 @@ const useStyles = makeStyles(() => {
     },
     headerTitle: {
       color: theme.palette.common.white,
-      textAlign: "center",
     },
   };
 });
 
 function NewSession({ setContext }) {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
 
-  const [webSocketUrl, setWebSocketUrl] = React.useState("ws://localhost:8080");
+  const [webSocketUrl, setWebSocketUrl] = useState("ws://localhost:8080");
 
   const session = new Session()
     .onConnect((newContext) => {
+      enqueueSnackbar("Connected to the bridge server!", {
+        variant: "success",
+      });
+
       setContext(newContext);
     })
-    .onDisconnect(() => {
+    .onDisconnect((code, reason) => {
+      enqueueSnackbar(
+        `Disconnected from the bridge server! ${reason} (${code})`,
+        { variant: "error" }
+      );
+
       setContext(null);
+    })
+    .onError((err) => {
+      enqueueSnackbar(`Found error! ${err.message}`, {
+        variant: "error",
+      });
     });
 
   const onConnectButton = () => {
@@ -42,7 +61,7 @@ function NewSession({ setContext }) {
   };
 
   const validateWebSocketUrl = () => {
-    return webSocketUrl.startsWith("ws://");
+    return webSocketUrl.startsWith("ws://") && webSocketUrl.length > 5;
   };
 
   const onWebSocketUrlChange = (event) => {
@@ -50,17 +69,17 @@ function NewSession({ setContext }) {
   };
 
   return (
-    <MuiContainer maxWidth="xs">
-      <MuiCard>
-        <MuiCardHeader
+    <Container maxWidth="xs">
+      <Card>
+        <CardHeader
           title="New Session"
           classes={{
             root: classes.headerRoot,
             title: classes.headerTitle,
           }}
         />
-        <MuiCardContent>
-          <MuiTextField
+        <CardContent>
+          <TextField
             label="WebSocket URL"
             value={webSocketUrl}
             onChange={onWebSocketUrlChange}
@@ -69,9 +88,9 @@ function NewSession({ setContext }) {
             variant="outlined"
             fullWidth
           />
-        </MuiCardContent>
-        <MuiCardActions>
-          <MuiButton
+        </CardContent>
+        <CardActions>
+          <Button
             onClick={onConnectButton}
             disabled={!validateWebSocketUrl()}
             color="primary"
@@ -79,10 +98,10 @@ function NewSession({ setContext }) {
             fullWidth
           >
             Connect
-          </MuiButton>
-        </MuiCardActions>
-      </MuiCard>
-    </MuiContainer>
+          </Button>
+        </CardActions>
+      </Card>
+    </Container>
   );
 }
 
