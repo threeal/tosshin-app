@@ -1,2 +1,0 @@
-(this["webpackJsonptosshin-app"]=this["webpackJsonptosshin-app"]||[]).push([[0],{9:function(t,e,s){"use strict";s.r(e);var n=s(0),c=s.n(n),p=s(3),r=s.n(p),a=s(1);var i=function(){return Object(a.jsx)("div",{className:"App"})};r.a.render(Object(a.jsx)(c.a.StrictMode,{children:Object(a.jsx)(i,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.322bee20.chunk.js.map
