@@ -1,6 +1,7 @@
 {
   "name": "tosshin-app",
   "version": "0.1.0",
+  "homepage": "https://threeal.github.io/tosshin-app/",
   "description": "Configurator web app for Tosshin movement package",
   "license": "MIT",
   "main": "index.js",
