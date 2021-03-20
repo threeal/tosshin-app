@@ -106,7 +106,6 @@ function NewSession({ setContext }) {
             disabled={!validateWebSocketUrl() || connecting}
             color="primary"
             variant="contained"
-            hei
             fullWidth
           >
             {connecting ? <CircularProgress size={24} /> : "Connect"}

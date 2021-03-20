@@ -1,3 +1,4 @@
+import { Fade } from "@material-ui/core";
 import { SnackbarProvider } from "notistack";
 import React, { useState } from "react";
 
@@ -9,7 +10,16 @@ function App() {
 
   return (
     <SnackbarProvider maxSnack={3}>
-      {context ? <MovementNode /> : <NewSession setContext={setContext} />}
+      <Fade in={context}>
+        <div>
+          <MovementNode />
+        </div>
+      </Fade>
+      <Fade in={!context}>
+        <div>
+          <NewSession setContext={setContext} />
+        </div>
+      </Fade>
     </SnackbarProvider>
   );
 }
