@@ -4,7 +4,6 @@
   "homepage": "/tosshin-app",
   "description": "Configurator web app for Tosshin movement package",
   "license": "MIT",
-  "main": "index.js",
   "repository": "git@github.com:threeak/tosshin-app.git",
   "scripts": {
     "start": "react-scripts start",
