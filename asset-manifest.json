@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/tosshin-app/static/js/main.8678c94e.chunk.js",
-    "main.js.map": "/tosshin-app/static/js/main.8678c94e.chunk.js.map",
+    "main.js": "/tosshin-app/static/js/main.dd08e1ff.chunk.js",
+    "main.js.map": "/tosshin-app/static/js/main.dd08e1ff.chunk.js.map",
     "runtime-main.js": "/tosshin-app/static/js/runtime-main.351075e8.js",
     "runtime-main.js.map": "/tosshin-app/static/js/runtime-main.351075e8.js.map",
-    "static/js/2.83c3e996.chunk.js": "/tosshin-app/static/js/2.83c3e996.chunk.js",
-    "static/js/2.83c3e996.chunk.js.map": "/tosshin-app/static/js/2.83c3e996.chunk.js.map",
+    "static/js/2.8b425e6b.chunk.js": "/tosshin-app/static/js/2.8b425e6b.chunk.js",
+    "static/js/2.8b425e6b.chunk.js.map": "/tosshin-app/static/js/2.8b425e6b.chunk.js.map",
     "index.html": "/tosshin-app/index.html",
-    "static/js/2.83c3e996.chunk.js.LICENSE.txt": "/tosshin-app/static/js/2.83c3e996.chunk.js.LICENSE.txt"
+    "static/js/2.8b425e6b.chunk.js.LICENSE.txt": "/tosshin-app/static/js/2.8b425e6b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.351075e8.js",
-    "static/js/2.83c3e996.chunk.js",
-    "static/js/main.8678c94e.chunk.js"
+    "static/js/2.8b425e6b.chunk.js",
+    "static/js/main.dd08e1ff.chunk.js"
   ]
 }
