@@ -16,8 +16,8 @@ jobs:
           node-version: '14'
       - name: Installing and building app
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
       - name: Testing app
         run: |
-          yarn lint
+          npm run lint

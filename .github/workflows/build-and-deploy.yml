@@ -14,8 +14,8 @@ jobs:
           node-version: '14'
       - name: Installing and building app
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
       - name: Deploying app
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
