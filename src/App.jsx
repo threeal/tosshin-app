@@ -1,26 +1,20 @@
-import { Fade } from "@material-ui/core";
-import { SnackbarProvider } from "notistack";
-import React, { useState } from "react";
+import { Box, Container } from "@material-ui/core";
+import { LoggerProvider, SessionProvider } from "kumo-app";
+import React from "react";
 
-import MovementNode from "./MovementNode";
-import NewSession from "./NewSession";
+import MovementNode from "./components/MovementNode";
 
 function App() {
-  const [context, setContext] = useState(null);
-
   return (
-    <SnackbarProvider maxSnack={3}>
-      <Fade in={context}>
-        <div>
-          <MovementNode />
-        </div>
-      </Fade>
-      <Fade in={!context}>
-        <div>
-          <NewSession setContext={setContext} />
-        </div>
-      </Fade>
-    </SnackbarProvider>
+    <LoggerProvider>
+      <SessionProvider>
+        <Box margin={4}>
+          <Container maxWidth="md">
+            <MovementNode />
+          </Container>
+        </Box>
+      </SessionProvider>
+    </LoggerProvider>
   );
 }
 

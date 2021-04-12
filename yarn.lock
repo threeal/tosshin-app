@@ -1197,11 +1197,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/roboto@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.2.2.tgz#39b87680b25915539e445cc6e0fac99e1a81f58b"
-  integrity sha512-VzYWCdqjrepaT7dezuaTZXKaW1L+f5FSp7DGxMqTrf81OTzh9xpKIpr8lgjPg2ZNwiT8rnU++mJ4hojsCnOoqw==
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -6998,10 +6993,20 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
-kumo-client@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/kumo-client/-/kumo-client-0.1.1.tgz#260e1b00785db02720b91bd36d7317ba8a7b4ac2"
-  integrity sha512-CtJoa6RNniTBEOir31ttMuI8bCBWOTebRbAT4R0EKjRCKrJPRmE+0fyBLJLltAkjsIqd0I47FynMbtG9XZ32XA==
+"kumo-app@https://github.com/ichiro-its/kumo-app":
+  version "0.1.0"
+  resolved "https://github.com/ichiro-its/kumo-app#536a2db5e4568e6f3e465f124b238df04a08d4ec"
+  dependencies:
+    "@material-ui/core" "^4.11.3"
+    kumo-client "^0.2.1"
+    notistack "^1.0.5"
+    prop-types "^15.7.2"
+    store2 "^2.12.0"
+
+kumo-client@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/kumo-client/-/kumo-client-0.2.1.tgz#6af612d4bff00314bb5935ec916366b442cd796c"
+  integrity sha512-aJFVsa/AQozNhPg+yrqMTWmaQdSClG70X7mUxcgcdlu2brmhJadAXvtF5vftVbLsa8cO7aWT2i1Naqfs2HSe2g==
   dependencies:
     websocket "^1.0.33"
 
@@ -10292,6 +10297,11 @@ stealthy-require@^1.1.1:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
+store2@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
+  integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -10895,11 +10905,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typescript@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
-  integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
